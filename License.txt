@@ -1,0 +1,138 @@
+SimuXL Software License Agreement
+
+Version 1.0 — Effective 2026-09-04
+
+This Software License Agreement ("Agreement") applies to the SimuXL Excel add-in and any accompanying files, documentation, and materials (collectively, the "Software") made available by Michael Ray Smith ("Licensor").
+
+By downloading, installing, or using the Software, you ("User") agree to be bound by this Agreement. If you do not agree to these terms, do not download, install, or use the Software.
+
+1. Definitions
+
+   "User" means the individual or legal entity named on the purchase record for the license.
+
+   "Designated User" means, if User is a legal entity, the single employee or contractor authorized by User to use the Software on User's behalf at any given time. User may change the Designated User by notifying Licensor.
+
+   "Machine ID" means the identifier the Software derives from a specific installation of Windows and shows under Help > License. A license key or activation code is bound to one Machine ID.
+
+   "Key" means the signed license text (beginning "SXL-") that the Software verifies on User's machine, whether it was sent to User directly or obtained by activating an activation code (beginning "SXLA-").
+
+   "Edition" means one of Trial, Subscription, or Perpetual, as stated on the Key.
+
+   "Supported-Through Date" means, for a Perpetual Key, the date stated on the Key; the Key runs every release of the Software dated on or before that date.
+
+   "Paid-Through Date" means, for a Subscription Key, the date stated on the Key.
+
+2. Evaluation vs. Licensed Use
+
+   (a) Trial. On a machine with no Key, the Software runs fully for thirty (30) days from its first use on that machine, solely for time-limited, non-production evaluation of its features. Output produced during the trial may not be used to support commercial project estimates, bids, or deliverables. When the trial ends, the Software stops running simulations on that machine until a Key is entered; defining and reading a model is not affected.
+
+   (b) Licensed Mode. Upon entry of a valid Key bound to the machine's Machine ID, the Software is licensed for commercial and internal business use on that single machine, subject to the terms below and to the Edition of the Key.
+
+3. License Grant (Licensed Mode)
+
+Licensor grants User a non-exclusive, non-transferable, limited license to install and use the Software on the single machine corresponding to the Machine ID bound to User's Key, for User's own internal business purposes, including commercial use in connection with cost, schedule, and engineering risk analysis.
+
+   (a) Perpetual Edition. The license does not expire. It authorizes every release of the Software dated on or before the Supported-Through Date stated on the Key, indefinitely. Releases dated after that date require a new Key or an extension of the Supported-Through Date, which Licensor may offer at then-current pricing.
+
+   (b) Subscription Edition. The license authorizes any release of the Software until the Paid-Through Date stated on the Key. After that date the Software continues to run for a short grace period, during which it says so at each run, and then stops running simulations until the subscription is renewed and a new Key entered.
+
+If User is a legal entity, only the Designated User is authorized to operate the Software. Concurrent use by multiple individuals is not permitted without additional licenses.
+
+4. Installation Scope
+
+   (a) Single Machine. A Key authorizes installation on one (1) machine identified by the Machine ID bound to that Key.
+
+   (b) Virtual Machines. Installation on a single virtual machine running on a single host is permitted, provided the virtual machine is not cloned, copied, imaged, or distributed, and the Key runs in only one virtual machine instance at a time.
+
+   (c) Remote Access. Remote access to the licensed machine by the Designated User (for example, via Remote Desktop, VPN, or similar technology) is permitted. Concurrent use by multiple individuals via remote access is not permitted.
+
+   (d) Prohibited Sharing. User shall not share a Key, an activation code, photographs or screenshots of either, or an installed copy of the Software with any third party.
+
+5. Machine ID Rehosts and License Transfers
+
+Each Key is bound to a single Machine ID. User may not share, copy, or install the Key on any additional machine.
+
+   (a) Rehost Allowance. User may request one (1) rehost of the license to a new Machine ID per rolling 24-month period at no charge (for example, to accommodate hardware replacement, Windows reinstallation, or machine upgrades). Additional rehosts may be accommodated at Licensor's discretion.
+
+   (b) Proof. Licensor may request a brief written attestation from User that the prior Machine ID has been decommissioned or is no longer in use by User.
+
+   (c) No Transfer to Third Parties. Licenses are not transferable between different Users. A license may not be sold, gifted, assigned, or otherwise transferred to any third party.
+
+6. Refunds
+
+User may request a full refund of the license purchase price within thirty (30) days of the original purchase date by contacting Licensor. Upon issuance of a refund, User must cease all use of the Software in Licensed Mode and delete the Key and all copies of the Software in User's possession or control. Refund processing may take up to ten (10) business days to appear on User's statement.
+
+7. Restrictions
+
+User may not:
+
+   (a) Copy, modify, adapt, translate, reverse engineer, decompile, or disassemble the Software, except where such restrictions are prohibited by applicable law.
+
+   (b) Redistribute, sell, sublicense, rent, lease, lend, or otherwise transfer the Software, a Key, or an activation code to any third party.
+
+   (c) Remove or alter any proprietary notices, labels, or marks on or in the Software.
+
+   (d) Circumvent, or attempt to circumvent, the license verification, the trial, or the Machine ID binding.
+
+   (e) Use the Software in any manner that violates applicable law.
+
+8. Ownership and Source Code
+
+The Software is licensed, not sold. Licensor retains all right, title, and interest in and to the Software, including all copyrights and other intellectual property rights. No rights are granted to the source code of the Software. User is not entitled to access, obtain, or request the source code.
+
+9. Support
+
+Licensor provides reasonable email support to Users holding a Perpetual Key whose Supported-Through Date has not passed, or a Subscription Key whose Paid-Through Date has not passed. Support is provided via email to michael.smith935@gmail.com. Licensor targets a two (2) business-day initial response but does not guarantee response times.
+
+Support is limited to commercially reasonable efforts to address defects, answer usage questions, and assist with license activation. Support does NOT include:
+
+   (a) Consulting, modeling advice, or guidance on the design of a User's risk analysis;
+   (b) Reconstruction, recovery, or migration of User's data or workbooks;
+   (c) Custom feature development or modifications;
+   (d) On-site support, phone support, screen-sharing sessions, or training;
+   (e) Any guaranteed response time or service-level commitment.
+
+Licensor is not obligated to provide support outside those periods, but may do so at Licensor's discretion.
+
+10. Data and Privacy
+
+The Software verifies the Key locally on User's machine at each load and does not transmit the Key, the Machine ID, the Designated User's identity, or the contents of any workbook to Licensor during ordinary use.
+
+Two operations contact a server, and each is described in the user guide:
+
+   (a) Activation of an activation code. If User was sent an activation code rather than a Key, the Software sends that code and the machine's Machine ID, once, to Licensor's activation service, which returns the Key bound to that machine. Licensor retains the code, the Machine ID, and the activation date in a ledger for licensing and support purposes.
+
+   (b) Checking for updates. When User presses Help > Check for Updates, or when the Software's optional weekly check runs if that option is switched on, the Software reads one small signed file from the Software's public release page on GitHub. That request carries the Software's version number and nothing else. GitHub, Inc. processes that request under its own terms and privacy policy; Licensor receives nothing from it.
+
+User's Machine ID is provided to Licensor at purchase time so that Licensor can issue a Key or activation code for that machine. Payment, where taken through a third-party payment service, is processed under that service's own terms and privacy policy, and payment card details are never transmitted to or stored by Licensor.
+
+Licensor retains the purchaser's name, email address, Machine ID, transaction date, and related purchase and support records for a period of seven (7) years for tax, accounting, legal, and support purposes. Licensor may engage third-party service providers for payment processing, email delivery, and file hosting, and may share the minimum necessary information with such providers to operate the service.
+
+Licensor will not sell User's personal information to third parties.
+
+11. No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. USER ASSUMES ALL RISKS ASSOCIATED WITH THE USE OF THE SOFTWARE AND IS SOLELY RESPONSIBLE FOR VALIDATING ANY OUTPUT OR RESULT PRODUCED BY THE SOFTWARE BEFORE RELYING ON IT FOR ANY PROJECT, ESTIMATE, BID, DESIGN, OR DECISION.
+
+12. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+LICENSOR'S TOTAL AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT ACTUALLY PAID BY USER TO LICENSOR FOR THE LICENSE OR (B) ONE HUNDRED U.S. DOLLARS ($100).
+
+13. Termination
+
+This Agreement is effective until terminated. Licensor may terminate this Agreement immediately if User materially breaches any of its terms, including unauthorized copying, distribution, sharing of Keys or activation codes, or reverse engineering of the Software. Upon termination, User must cease all use of the Software and delete all copies in User's possession or control. Sections 7, 8, 10, 11, 12, and 14 survive termination.
+
+14. Governing Law and Venue
+
+This Agreement shall be governed by and construed in accordance with the laws of the State of Georgia, without regard to its conflict-of-law principles. Any action arising out of or relating to this Agreement shall be brought exclusively in the state courts of Cobb County, Georgia, or the United States District Court for the Northern District of Georgia, Atlanta Division, and the parties consent to the personal jurisdiction of such courts.
+
+15. Entire Agreement
+
+This Agreement, together with the order confirmation issued to User at the time of purchase, constitutes the entire agreement between Licensor and User regarding the Software and supersedes all prior or contemporaneous understandings, whether written or oral. The order confirmation is the controlling record of the commercial terms applicable to a given sale. Licensor will honor any more favorable terms expressly communicated to User at the time of purchase.
+
+Contact
+
+Michael Ray Smith
+Email: michael.smith935@gmail.com
