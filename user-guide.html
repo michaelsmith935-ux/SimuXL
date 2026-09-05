@@ -82,7 +82,7 @@
 <body>
 <header>
 <h1>SimuXL User Guide</h1>
-<p class="subtitle">SimuXL 1.7.0 - Excel-DNA add-in (.xll) - Monte Carlo simulation inside your own workbook.</p>
+<p class="subtitle">SimuXL 1.8.0 - Excel-DNA add-in (.xll) - Monte Carlo simulation inside your own workbook.</p>
 </header>
 <nav class="toc">
 <h2>Contents</h2>
@@ -101,11 +101,12 @@
 <li><a href="#alternative-table">The Alternative Table</a><span class="tocsum">A sheet you type into: one row per control variable, one column per alternative, and a Base case column SimuXL keeps up to date.</span></li>
 <li><a href="#analyses">The analyses</a><span class="tocsum">The ways to see what your model does, two ways to write the whole run up, plus the raw data. None of them edits your model.</span></li>
 <li><a href="#interpreting">Interpreting results</a><span class="tocsum">Which number to quote, which analysis to believe, and what a reader needs in order to check you.</span></li>
-<li><a href="#settings">Preferences and percentiles</a><span class="tocsum">Which analyses run, where they go, what the report carries, and what P90 means - stored per workbook, apart from four that follow you instead.</span></li>
+<li><a href="#settings">Preferences and percentiles</a><span class="tocsum">Which analyses run, where they go, what the report carries, and what P90 means - stored per workbook, apart from five that follow you instead.</span></li>
 <li><a href="#older-workbooks">Older workbooks</a><span class="tocsum">If you defined inputs through the older SimuXL&#39;s Define Input dialog, convert them once.</span></li>
 <li><a href="#where-things-are">Where things are</a><span class="tocsum">The log, the reports, and the one thing SimuXL stores inside your workbook.</span></li>
 <li><a href="#licensing">Licensing</a><span class="tocsum">A trial on each machine, then a key issued for that machine.</span></li>
-<li><a href="#updates">Checking for updates</a><span class="tocsum">One signed file on the release page, read when you ask.</span></li>
+<li><a href="#updates">Checking for updates</a><span class="tocsum">One signed file on the release page, read when you ask and quietly once a week.</span></li>
+<li><a href="#signature">A signed add-in, and the one-time trust step</a><span class="tocsum">Every SimuXL file is signed by Michael Ray Smith; one step trusts that signature on your machine, and a downloaded copy then loads without being blocked.</span></li>
 <li><a href="#shortcuts">The right-click menu, the keyboard, and SimuXL from your own macros and formulas</a><span class="tocsum">The ways in: the SimuXL tab, a SimuXL entry on the cell right-click menu, a typed Application.Run call for the commands with no button, and - for a run - a call your own macro can make and read the answer back from. And in the other direction, three worksheet functions answer questions about SimuXL itself: which build is installed, and what the last run measured. The Ctrl+Shift keyboard chords earlier builds registered are disabled in this build.</span></li>
 <li><a href="#troubleshooting">When something looks wrong</a><span class="tocsum">Most of what follows is SimuXL working correctly and being surprising. The first two are not.</span></li>
 <li><a href="#glossary">Glossary</a><span class="tocsum">Every term this guide uses in a particular way, in one place.</span></li>
@@ -811,13 +812,13 @@
 </section>
 <section id="settings">
 <h2><span class="num">15</span>Preferences and percentiles</h2>
-<p class="summary">Which analyses run, where they go, what the report carries, and what P90 means - stored per workbook, apart from four that follow you instead.</p>
+<p class="summary">Which analyses run, where they go, what the report carries, and what P90 means - stored per workbook, apart from five that follow you instead.</p>
 <p><strong>Preferences &gt; Report</strong> on the ribbon, and <strong>Preferences</strong> beside Run Simulation, open the SAME dialog on different tabs. Five tabs. It decides which analyses SimuXL builds for you after a simulation, where their sheets go, which of them the HTML Report carries, and how percentiles are worded.</p>
 <h3>Simulation - what the Run dialog opens with</h3>
 <p>The <strong>Simulation</strong> tab sets the trial count the Run dialog suggests, and which seed it offers - a new one each time, the last run&#39;s, or a fixed number you choose. Neither decides anything: the Run dialog still asks, and a run uses whatever you leave in its boxes. It also carries <strong>Stop the run on a calculation error</strong>, which does decide something - see <strong>Rules SimuXL enforces</strong>.</p>
-<div class="note"><span class="tag">Note</span><strong>Four settings follow YOU between workbooks rather than living in this file - the trial count, the seed, where analysis sheets go, and whether a summary window appears when a run finishes. Everything else stays in the workbook and travels with it.</strong> A workbook that stores its own always wins, so opening a colleague&#39;s model still runs it their way.</div>
-<p>To set them: tick <strong>Also save the trial count, seed, sheet destination and summary window to my MACHINE</strong> at the foot of the dialog - below the tabs, beside <strong>Save</strong> - and press <strong>Save</strong>. They are written to <code>SimuXL_Defaults.txt</code>, beside the log, so a brand new workbook does not start from scratch. The settings line on every analysis sheet names which of the sources it actually read.</p>
-<p>The same tab carries <strong>Show a summary window when a run finishes</strong>, in a box captioned <strong>This setting follows ME, not this file</strong> because it lives only at machine scope - no workbook stores it. The summary window itself offers to stop appearing after every run; <strong>this tick is the way back on</strong>. A run that was stopped, that failed, or that excluded any trial still shows the window whatever this says, because those are the runs whose outcome you cannot infer from the sheet.</p>
+<div class="note"><span class="tag">Note</span><strong>Five settings follow YOU between workbooks rather than living in this file - the trial count, the seed, where analysis sheets go, whether a summary window appears when a run finishes, and whether SimuXL checks for updates once a week. Everything else stays in the workbook and travels with it.</strong> A workbook that stores its own always wins, so opening a colleague&#39;s model still runs it their way.</div>
+<p>To set them: tick <strong>Also save the trial count, seed, sheet destination, summary window and update check to my MACHINE</strong> at the foot of the dialog - below the tabs, beside <strong>Save</strong> - and press <strong>Save</strong>. They are written to <code>SimuXL_Defaults.txt</code>, beside the log, so a brand new workbook does not start from scratch. The settings line on every analysis sheet names which of the sources it actually read.</p>
+<p>The same tab carries <strong>Show a summary window when a run finishes</strong> and <strong>Check for updates once a week when Excel starts</strong>, in a box captioned <strong>These settings follow ME, not this file</strong> because both live only at machine scope - no workbook stores either. The summary window itself offers to stop appearing after every run; <strong>its tick is the way back on</strong>. A run that was stopped, that failed, or that excluded any trial still shows the window whatever this says, because those are the runs whose outcome you cannot infer from the sheet. The update tick is described under the section named Checking for updates.</p>
 <h3>Analyses - what happens after a run</h3>
 <p>Tick the analyses you want built <strong>automatically, immediately after each simulation finishes</strong>: Tornado, Impact, Tail Drivers, Input Summary. They are the same analyses as the ribbon buttons, over every output, with no picker to answer - so ticking them here saves pressing four buttons after every run. <strong>Nothing is ticked to begin with</strong>: leave them all clear and a run behaves exactly as it always has. The one thing this is needed for is Impact in the HTML Report, which cannot get there any other way except by pressing Impact on the ribbon afterwards.</p>
 <div class="warn"><span class="tag">Watch out</span><strong>If you tick Impact, expect a run to take longer - sometimes longer than the simulation did.</strong> It recalculates your live model once for the base case and then once for every value each Uncertain Input is driven to. <strong>When the estimate is over five seconds</strong> SimuXL quotes the recalculation count and the time before spending any of it, and Cancel there skips Impact for that run only. The other three read the run already in memory and are effectively free.</div>
@@ -829,7 +830,7 @@
 <h3>Percentiles - the tails, and Below or Above</h3>
 <p>The <strong>Percentiles</strong> tab holds the presentation choices the analysis sheets make: which way round a quoted percentile reads, which percentiles define the lower and upper tails, and how many drivers each tail table shows.</p>
 <ul>
-<li>Every option here is stored <strong>in the workbook</strong>, not in the add-in, so it travels with the file and two models can disagree. <strong>Four exceptions can also follow YOU</strong> - the trial count, the seed choice, where analysis sheets go, and whether a summary window appears after a run - used only by workbooks that have not chosen for themselves. <strong>Percentile direction deliberately cannot</strong>: it decides what P90 MEANS, and one workbook must not read two ways on two machines. That is the test the whole split applies - a setting may follow you only if it changes how you WORK without changing what any number or any sentence means.</li>
+<li>Every option here is stored <strong>in the workbook</strong>, not in the add-in, so it travels with the file and two models can disagree. <strong>Five exceptions can also follow YOU</strong> - the trial count, the seed choice, where analysis sheets go, whether a summary window appears after a run, and whether SimuXL checks for updates once a week - used only by workbooks that have not chosen for themselves. <strong>Percentile direction deliberately cannot</strong>: it decides what P90 MEANS, and one workbook must not read two ways on two machines. That is the test the whole split applies - a setting may follow you only if it changes how you WORK without changing what any number or any sentence means.</li>
 <li><strong>An option is written only when it differs from what this workbook would otherwise inherit</strong> - from the older VBA add-in&#39;s settings if it has them, then from your own machine defaults, then from SimuXL&#39;s built-ins. So a model that agrees with all of those stores nothing at all, and the dialog says so; and choosing SimuXL&#39;s own default AGAINST a machine default of your own is a real choice, so it is written down.</li>
 <li>If you set the percentile direction in the older VBA add-in&#39;s Simulation Settings, SimuXL reads that too. <strong>The Input Summary and the Tail Drivers print which source they read it from</strong> - the workbook, the older add-in, your machine, or the built-in - on the sheet, beside the numbers. They are the two sheets a percentile setting changes.</li>
 <li><strong>Nothing here changes a sheet that already exists.</strong> Run the simulation again, or rebuild an analysis, to see a change applied.</li>
@@ -914,17 +915,35 @@
 </section>
 <section id="updates">
 <h2><span class="num">19</span>Checking for updates</h2>
-<p class="summary">One signed file on the release page, read when you ask.</p>
+<p class="summary">One signed file on the release page, read when you ask and quietly once a week.</p>
 <p>Press <strong>Help &gt; Check for Updates</strong>. SimuXL reads one small signed file from its release page and compares the version it names with this build&#39;s. It sends nothing about you, your workbook or this machine, and it downloads nothing. The dialog then says one of five things: this machine runs the newest release; a newer release is published, and whether the license on this machine covers it; this build is newer than the published one; the file it read is not a release manifest SimuXL accepts, with the reason; or the release page could not be read, with the reason.</p>
 <h3>What it sends, and what it does not</h3>
 <p>One request for the file <code>simuxl-latest.txt</code> on SimuXL&#39;s release page (the dialog prints the exact address it read), carrying SimuXL&#39;s version number in the way every browser carries its own. <strong>No machine id, no licensee, no key and no workbook name leave this machine.</strong> The file it reads is signed with the same key that issues licenses, and a file whose signature does not verify is refused rather than believed - so nothing on the internet can make SimuXL announce a release that was not published.</p>
-<p><strong>SimuXL never downloads or installs anything.</strong> When a newer release exists, <strong>Open release page</strong> opens the release page in your browser; you download the add-in from there and install it as you did this one, with Excel closed. Nothing runs at Excel start-up in this build: the check happens only when you press the button.</p>
+<p><strong>SimuXL never downloads or installs anything.</strong> When a newer release exists, <strong>Open release page</strong> opens the release page in your browser; you download the add-in from there and install it as you did this one, with Excel closed.</p>
+<h3>The quiet check once a week</h3>
+<p>SimuXL also makes the same check on its own, <strong>once a week at most</strong>, about 30 seconds after Excel starts. It shows nothing at start-up - no window, no message - and sends exactly what the button sends: the one request above, carrying only SimuXL&#39;s version number. What it found is on the <strong>Updates</strong> line of <strong>Help &gt; About</strong>; pressing the button checks again. A check you make yourself counts, so pressing the button today means no quiet check for 7 days; and if the release page could not be reached, SimuXL waits the same 7 days before trying again on its own.</p>
+<p><strong>To turn it off</strong>: under Preferences &gt; Simulation, untick <strong>Check for updates once a week when Excel starts</strong> (it sits in the box captioned <strong>These settings follow ME, not this file</strong>, because it belongs to your machine and no workbook carries it). The tick is recorded the moment it changes, like the machine tick at the foot of the dialog, so Save is not needed for it. With it off, nothing is read at start-up at all; the button still works whenever you press it.</p>
 <h3>Updates and your license</h3>
 <p>A <strong>subscription</strong> key runs every release until it expires, so a newer release is always yours to install. A <strong>perpetual</strong> key runs releases dated on or before the date it names (<strong>Help &gt; About</strong> shows it): if the newer release is dated after that, the dialog says so and names the date, and installing it would stop simulations on this machine until a key covering it is entered. <strong>Help &gt; About</strong> carries one line saying what the last check concluded and when.</p>
 <div class="note"><span class="tag">Note</span>If a machine has no internet access the check simply says the release page could not be read; nothing else changes, and the add-in keeps working exactly as before.</div>
 </section>
+<section id="signature">
+<h2><span class="num">20</span>A signed add-in, and the one-time trust step</h2>
+<p class="summary">Every SimuXL file is signed by Michael Ray Smith; one step trusts that signature on your machine, and a downloaded copy then loads without being blocked.</p>
+<p>Both <code>SimuXL64.xll</code> and <code>SimuXL32.xll</code> carry a digital signature by <strong>Michael Ray Smith</strong>, the licensor named in the license. The certificate behind it is SimuXL&#39;s own rather than one bought from a certificate authority, which is why your machine does not trust it until you tell it to - and until then Windows treats a copy downloaded from the internet as untrusted and Excel refuses to load it.</p>
+<h3>The one-time step</h3>
+<ol class="steps">
+<li>Download <strong>SimuXL-Publisher.cer</strong> and <strong>SimuXL-Trust.bat</strong> from the release page into the same folder as the add-in.</li>
+<li>Double-click <strong>SimuXL-Trust.bat</strong>. It adds SimuXL-Publisher.cer to your own Trusted Root Certification Authorities and Trusted Publishers stores - no administrator is needed, nothing else on the machine changes, and every SimuXL file signed with that certificate is trusted from then on, including a copy Windows marked as downloaded from the internet. Windows asks once whether to install a certificate claiming to represent Michael Ray Smith; answer <strong>Yes</strong>.</li>
+<li>The window then reads the signature on each SimuXL file beside it and prints <strong>Valid</strong> for each - that is the pass. Close it and load the add-in as usual.</li>
+</ol>
+<p>After that, every SimuXL file signed with the same certificate is trusted on that machine - this release and the next - and no <strong>Unblock</strong> step is needed for a downloaded copy. A machine whose administrator locks the certificate stores may need the administrator to run the step instead.</p>
+<h3>What About says</h3>
+<p><strong>Help &gt; About</strong> carries a <strong>Signature</strong> line reading what the running file&#39;s signature says on this machine: <code>Signature: signed by Michael Ray Smith, trusted on this machine.</code> once the step has been run, and before it a line ending <code>run SimuXL-Trust.bat once.</code> naming what is still missing. A file signed by anyone but Michael Ray Smith says so on the same line; it is not a file SimuXL released.</p>
+<div class="note"><span class="tag">Note</span>Trusting the certificate changes nothing about what SimuXL does: it still needs no internet connection, still sends nothing anywhere, and the update check still reads its one signed file exactly as the section above describes.</div>
+</section>
 <section id="shortcuts">
-<h2><span class="num">20</span>The right-click menu, the keyboard, and SimuXL from your own macros and formulas</h2>
+<h2><span class="num">21</span>The right-click menu, the keyboard, and SimuXL from your own macros and formulas</h2>
 <p class="summary">The ways in: the SimuXL tab, a SimuXL entry on the cell right-click menu, a typed Application.Run call for the commands with no button, and - for a run - a call your own macro can make and read the answer back from. And in the other direction, three worksheet functions answer questions about SimuXL itself: which build is installed, and what the last run measured. The Ctrl+Shift keyboard chords earlier builds registered are disabled in this build.</p>
 <h3>Right-click a cell</h3>
 <p><strong>Right-click any cell and there is a SimuXL entry on the menu</strong>, carrying the commands that are about the cell you are standing on: <strong>Define Input</strong>, <strong>Define Output</strong>, <strong>Erase</strong>, <strong>Name</strong>, <strong>Freeze / Release</strong> and <strong>Run Simulation</strong>. The <strong>Define Input as</strong> entry opens the same list of 8 distributions as the ribbon menu, in the same order.</p>
@@ -984,7 +1003,7 @@
 <div class="note"><span class="tag">Note</span>If the SimuXL entry is missing from the right-click menu, open <strong>Help &gt; About</strong>: it says whether SimuXL built the menu and, if it could not, why. Nothing else is affected - every command on that menu is still on the tab.</div>
 </section>
 <section id="troubleshooting">
-<h2><span class="num">21</span>When something looks wrong</h2>
+<h2><span class="num">22</span>When something looks wrong</h2>
 <p class="summary">Most of what follows is SimuXL working correctly and being surprising. The first two are not.</p>
 <h3>Every SimuXL formula shows #NAME?</h3>
 <p>The add-in is not loaded. Excel does not know the function exists. Check <strong>File &gt; Options &gt; Add-ins &gt; Manage: Excel Add-ins</strong> and confirm SimuXL is ticked. This is also what a colleague sees when you email them a model and they do not have SimuXL - the numbers you last calculated are still in the file, but the formulas cannot recalculate.</p>
@@ -1016,7 +1035,7 @@
 <p>Press <strong>Help &gt; View Log</strong>. The log records what SimuXL did and the full text of anything that failed, including the detail a message box does not show. <strong>Help &gt; About</strong> gives the exact version to quote. Both are what a useful bug report is made of.</p>
 </section>
 <section id="glossary">
-<h2><span class="num">22</span>Glossary</h2>
+<h2><span class="num">23</span>Glossary</h2>
 <p class="summary">Every term this guide uses in a particular way, in one place.</p>
 <dl class="pairs">
 <dt>Uncertain Input</dt><dd>ONE distribution: the thing that gets sampled, that appears in the tornado, and that you can freeze or correlate. A cell can hold more than one.</dd>
