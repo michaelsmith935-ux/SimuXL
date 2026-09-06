@@ -82,7 +82,7 @@
 <body>
 <header>
 <h1>SimuXL User Guide</h1>
-<p class="subtitle">SimuXL 1.8.0 - Excel-DNA add-in (.xll) - Monte Carlo simulation inside your own workbook.</p>
+<p class="subtitle">SimuXL 1.9.0 - Excel-DNA add-in (.xll) - Monte Carlo simulation inside your own workbook.</p>
 </header>
 <nav class="toc">
 <h2>Contents</h2>
@@ -107,6 +107,7 @@
 <li><a href="#licensing">Licensing</a><span class="tocsum">A trial on each machine, then a key issued for that machine.</span></li>
 <li><a href="#updates">Checking for updates</a><span class="tocsum">One signed file on the release page, read when you ask and quietly once a week.</span></li>
 <li><a href="#signature">A signed add-in, and the one-time trust step</a><span class="tocsum">Every SimuXL file is signed by Michael Ray Smith; one step trusts that signature on your machine, and a downloaded copy then loads without being blocked.</span></li>
+<li><a href="#installer">The installer</a><span class="tocsum">One file, SimuXL-Setup-1.9.0.exe, installs the right add-in for your Excel, registers it, and runs the trust step - no administrator needed.</span></li>
 <li><a href="#shortcuts">The right-click menu, the keyboard, and SimuXL from your own macros and formulas</a><span class="tocsum">The ways in: the SimuXL tab, a SimuXL entry on the cell right-click menu, a typed Application.Run call for the commands with no button, and - for a run - a call your own macro can make and read the answer back from. And in the other direction, three worksheet functions answer questions about SimuXL itself: which build is installed, and what the last run measured. The Ctrl+Shift keyboard chords earlier builds registered are disabled in this build.</span></li>
 <li><a href="#troubleshooting">When something looks wrong</a><span class="tocsum">Most of what follows is SimuXL working correctly and being surprising. The first two are not.</span></li>
 <li><a href="#glossary">Glossary</a><span class="tocsum">Every term this guide uses in a particular way, in one place.</span></li>
@@ -942,8 +943,23 @@
 <p><strong>Help &gt; About</strong> carries a <strong>Signature</strong> line reading what the running file&#39;s signature says on this machine: <code>Signature: signed by Michael Ray Smith, trusted on this machine.</code> once the step has been run, and before it a line ending <code>run SimuXL-Trust.bat once.</code> naming what is still missing. A file signed by anyone but Michael Ray Smith says so on the same line; it is not a file SimuXL released.</p>
 <div class="note"><span class="tag">Note</span>Trusting the certificate changes nothing about what SimuXL does: it still needs no internet connection, still sends nothing anywhere, and the update check still reads its one signed file exactly as the section above describes.</div>
 </section>
+<section id="installer">
+<h2><span class="num">21</span>The installer</h2>
+<p class="summary">One file, SimuXL-Setup-1.9.0.exe, installs the right add-in for your Excel, registers it, and runs the trust step - no administrator needed.</p>
+<p>Every release page carries <strong>SimuXL-Setup-1.9.0.exe</strong> beside the two add-in files. Close Excel, run it, and it does the four things the manual route does by hand:</p>
+<ol class="steps">
+<li><strong>Reads which Excel you have</strong> - 64-bit or 32-bit - from Excel&#39;s own program file, and shows the answer on a page you can correct. Only the matching add-in is installed.</li>
+<li><strong>Installs into your own Programs folder</strong> (<code>%LOCALAPPDATA%\Programs\SimuXL</code>), with <strong>SimuXL-Publisher.cer</strong>, <strong>SimuXL-Trust.bat</strong> and this guide beside the add-in. No administrator is asked for and nothing outside your own profile changes.</li>
+<li><strong>Registers the add-in with Excel</strong> the way Excel&#39;s own Add-ins dialog does, so the SimuXL tab is on the ribbon the next time Excel starts - there is no Browse step.</li>
+<li><strong>Runs the trust step</strong> (ticked by default), so Windows asks once whether to trust the certificate; answer <strong>Yes</strong>. The section above says what that step does and how <strong>Help &gt; About</strong> shows it.</li>
+</ol>
+<p>The installer is signed with the same certificate as the add-in. Windows SmartScreen may still say it <strong>protected your PC</strong> from an app it does not recognise: SmartScreen judges a file by how many machines have already run it, not by its certificate, so a fresh release can meet that screen even on a machine that trusts the publisher. Press <strong>More info</strong>, read the publisher&#39;s name - <strong>Michael Ray Smith</strong> - and press <strong>Run anyway</strong>.</p>
+<h3>Updating and removing</h3>
+<p>A newer release&#39;s installer installs over the older one: close Excel first (the installer asks if Excel still has the add-in open), run it, and start Excel. <strong>Uninstall</strong> is under Windows&#39; <strong>Installed apps</strong> as <strong>SimuXL</strong>: it removes the files and Excel&#39;s add-in entry (putting back an earlier SimuXL entry if the installer had replaced one), and leaves your settings, your licence file, your log and the trusted certificate exactly where they were.</p>
+<div class="note"><span class="tag">Note</span>The manual route on the release page still works and installs the same signed file: download the add-in, run the trust step, and tick the file under <strong>File &gt; Options &gt; Add-ins</strong>. The installer only saves those steps; it changes nothing about what the add-in does.</div>
+</section>
 <section id="shortcuts">
-<h2><span class="num">21</span>The right-click menu, the keyboard, and SimuXL from your own macros and formulas</h2>
+<h2><span class="num">22</span>The right-click menu, the keyboard, and SimuXL from your own macros and formulas</h2>
 <p class="summary">The ways in: the SimuXL tab, a SimuXL entry on the cell right-click menu, a typed Application.Run call for the commands with no button, and - for a run - a call your own macro can make and read the answer back from. And in the other direction, three worksheet functions answer questions about SimuXL itself: which build is installed, and what the last run measured. The Ctrl+Shift keyboard chords earlier builds registered are disabled in this build.</p>
 <h3>Right-click a cell</h3>
 <p><strong>Right-click any cell and there is a SimuXL entry on the menu</strong>, carrying the commands that are about the cell you are standing on: <strong>Define Input</strong>, <strong>Define Output</strong>, <strong>Erase</strong>, <strong>Name</strong>, <strong>Freeze / Release</strong> and <strong>Run Simulation</strong>. The <strong>Define Input as</strong> entry opens the same list of 8 distributions as the ribbon menu, in the same order.</p>
@@ -1003,7 +1019,7 @@
 <div class="note"><span class="tag">Note</span>If the SimuXL entry is missing from the right-click menu, open <strong>Help &gt; About</strong>: it says whether SimuXL built the menu and, if it could not, why. Nothing else is affected - every command on that menu is still on the tab.</div>
 </section>
 <section id="troubleshooting">
-<h2><span class="num">22</span>When something looks wrong</h2>
+<h2><span class="num">23</span>When something looks wrong</h2>
 <p class="summary">Most of what follows is SimuXL working correctly and being surprising. The first two are not.</p>
 <h3>Every SimuXL formula shows #NAME?</h3>
 <p>The add-in is not loaded. Excel does not know the function exists. Check <strong>File &gt; Options &gt; Add-ins &gt; Manage: Excel Add-ins</strong> and confirm SimuXL is ticked. This is also what a colleague sees when you email them a model and they do not have SimuXL - the numbers you last calculated are still in the file, but the formulas cannot recalculate.</p>
@@ -1035,7 +1051,7 @@
 <p>Press <strong>Help &gt; View Log</strong>. The log records what SimuXL did and the full text of anything that failed, including the detail a message box does not show. <strong>Help &gt; About</strong> gives the exact version to quote. Both are what a useful bug report is made of.</p>
 </section>
 <section id="glossary">
-<h2><span class="num">23</span>Glossary</h2>
+<h2><span class="num">24</span>Glossary</h2>
 <p class="summary">Every term this guide uses in a particular way, in one place.</p>
 <dl class="pairs">
 <dt>Uncertain Input</dt><dd>ONE distribution: the thing that gets sampled, that appears in the tornado, and that you can freeze or correlate. A cell can hold more than one.</dd>
