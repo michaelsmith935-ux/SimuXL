@@ -82,7 +82,7 @@
 <body>
 <header>
 <h1>SimuXL User Guide</h1>
-<p class="subtitle">SimuXL 1.9.0 - Excel-DNA add-in (.xll) - Monte Carlo simulation inside your own workbook.</p>
+<p class="subtitle">SimuXL 1.9.1 - Excel-DNA add-in (.xll) - Monte Carlo simulation inside your own workbook.</p>
 </header>
 <nav class="toc">
 <h2>Contents</h2>
@@ -107,7 +107,7 @@
 <li><a href="#licensing">Licensing</a><span class="tocsum">A trial on each machine, then a key issued for that machine.</span></li>
 <li><a href="#updates">Checking for updates</a><span class="tocsum">One signed file on the release page, read when you ask and quietly once a week.</span></li>
 <li><a href="#signature">A signed add-in, and the one-time trust step</a><span class="tocsum">Every SimuXL file is signed by Michael Ray Smith; one step trusts that signature on your machine, and a downloaded copy then loads without being blocked.</span></li>
-<li><a href="#installer">The installer</a><span class="tocsum">One file, SimuXL-Setup-1.9.0.exe, installs the right add-in for your Excel, registers it, and runs the trust step - no administrator needed.</span></li>
+<li><a href="#installer">The installer</a><span class="tocsum">One file, SimuXL-Setup-1.9.1.exe, installs the right add-in for your Excel, registers it, and runs the trust step - no administrator needed.</span></li>
 <li><a href="#shortcuts">The right-click menu, the keyboard, and SimuXL from your own macros and formulas</a><span class="tocsum">The ways in: the SimuXL tab, a SimuXL entry on the cell right-click menu, a typed Application.Run call for the commands with no button, and - for a run - a call your own macro can make and read the answer back from. And in the other direction, three worksheet functions answer questions about SimuXL itself: which build is installed, and what the last run measured. The Ctrl+Shift keyboard chords earlier builds registered are disabled in this build.</span></li>
 <li><a href="#troubleshooting">When something looks wrong</a><span class="tocsum">Most of what follows is SimuXL working correctly and being surprising. The first two are not.</span></li>
 <li><a href="#glossary">Glossary</a><span class="tocsum">Every term this guide uses in a particular way, in one place.</span></li>
@@ -945,17 +945,18 @@
 </section>
 <section id="installer">
 <h2><span class="num">21</span>The installer</h2>
-<p class="summary">One file, SimuXL-Setup-1.9.0.exe, installs the right add-in for your Excel, registers it, and runs the trust step - no administrator needed.</p>
-<p>Every release page carries <strong>SimuXL-Setup-1.9.0.exe</strong> beside the two add-in files. Close Excel, run it, and it does the four things the manual route does by hand:</p>
+<p class="summary">One file, SimuXL-Setup-1.9.1.exe, installs the right add-in for your Excel, registers it, and runs the trust step - no administrator needed.</p>
+<p>Every release page carries <strong>SimuXL-Setup-1.9.1.exe</strong> beside the two add-in files. Close Excel, run it, and it does these five things:</p>
 <ol class="steps">
 <li><strong>Reads which Excel you have</strong> - 64-bit or 32-bit - from Excel&#39;s own program file, and shows the answer on a page you can correct. Only the matching add-in is installed.</li>
 <li><strong>Installs into your own Programs folder</strong> (<code>%LOCALAPPDATA%\Programs\SimuXL</code>), with <strong>SimuXL-Publisher.cer</strong>, <strong>SimuXL-Trust.bat</strong> and this guide beside the add-in. No administrator is asked for and nothing outside your own profile changes.</li>
 <li><strong>Registers the add-in with Excel</strong> the way Excel&#39;s own Add-ins dialog does, so the SimuXL tab is on the ribbon the next time Excel starts - there is no Browse step.</li>
+<li><strong>Trusts that one folder in Excel</strong> - just the folder it installed into, not its subfolders - so Excel loads the add-in even if your Trust Center is set to block add-in files (File Block). No other Trust Center setting is changed.</li>
 <li><strong>Runs the trust step</strong> (ticked by default), so Windows asks once whether to trust the certificate; answer <strong>Yes</strong>. The section above says what that step does and how <strong>Help &gt; About</strong> shows it.</li>
 </ol>
 <p>The installer is signed with the same certificate as the add-in. Windows SmartScreen may still say it <strong>protected your PC</strong> from an app it does not recognise: SmartScreen judges a file by how many machines have already run it, not by its certificate, so a fresh release can meet that screen even on a machine that trusts the publisher. Press <strong>More info</strong>, read the publisher&#39;s name - <strong>Michael Ray Smith</strong> - and press <strong>Run anyway</strong>.</p>
 <h3>Updating and removing</h3>
-<p>A newer release&#39;s installer installs over the older one: close Excel first (the installer asks if Excel still has the add-in open), run it, and start Excel. <strong>Uninstall</strong> is under Windows&#39; <strong>Installed apps</strong> as <strong>SimuXL</strong>: it removes the files and Excel&#39;s add-in entry (putting back an earlier SimuXL entry if the installer had replaced one), and leaves your settings, your licence file, your log and the trusted certificate exactly where they were.</p>
+<p>A newer release&#39;s installer installs over the older one: close Excel first (the installer asks if Excel still has the add-in open), run it, and start Excel. <strong>Uninstall</strong> is under Windows&#39; <strong>Installed apps</strong> as <strong>SimuXL</strong>: it removes the files, Excel&#39;s add-in entry (putting back an earlier SimuXL entry if the installer had replaced one) and the one trusted location it added, and leaves your settings, your licence file, your log and the trusted certificate exactly where they were.</p>
 <div class="note"><span class="tag">Note</span>The manual route on the release page still works and installs the same signed file: download the add-in, run the trust step, and tick the file under <strong>File &gt; Options &gt; Add-ins</strong>. The installer only saves those steps; it changes nothing about what the add-in does.</div>
 </section>
 <section id="shortcuts">
